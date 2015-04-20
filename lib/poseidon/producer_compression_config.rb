@@ -4,6 +4,7 @@ module Poseidon
     COMPRESSION_CODEC_MAP = {
       :gzip   => Compression::GzipCodec,
       :snappy => Compression::SnappyCodec,
+      :lz4    => Compression::Lz4Codec,
       :none   => nil
     }
 

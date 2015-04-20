@@ -5,11 +5,13 @@ module Poseidon
 
     require "poseidon/compression/gzip_codec"
     require "poseidon/compression/snappy_codec"
+    require "poseidon/compression/lz4_codec"
 
     CODECS = {
       #0 => no codec
       1 => GzipCodec,
-      2 => SnappyCodec
+      2 => SnappyCodec,
+      3 => Lz4Codec
     }
 
     # Fetches codec module for +codec_id+

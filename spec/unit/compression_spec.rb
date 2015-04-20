@@ -11,7 +11,12 @@ RSpec.describe Compression do
     expect(codec).to eq(Compression::SnappyCodec)
   end
 
+  it 'returns Lz4Compessor for codec_id of 3' do
+    codec = Compression.find_codec(3)
+    expect(codec).to eq(Compression::Lz4Codec)
+  end
+
   it 'raises UnrecognizedCompressionCodec for codec_id of 3' do
-    expect { Compression.find_codec(3) }.to raise_error(Compression::UnrecognizedCompressionCodec)
+    expect { Compression.find_codec(4) }.to raise_error(Compression::UnrecognizedCompressionCodec)
   end
 end
